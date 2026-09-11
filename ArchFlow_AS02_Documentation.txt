@@ -173,6 +173,8 @@ AI tools were used during development to help with:
 
 AI was used as a development aid. The developer understands the submitted architecture and implementation and can explain how the prototype works.
 
+AI Usage Note: AI tools were used during the development of ArchFlow for ideation, requirement analysis, UI design, code assistance, debugging, documentation, and improving the demo workflow. The current prototype does not depend on a paid external AI API or LLM at runtime. The communication analysis is implemented using a rule-based, domain-aware approach so that the prototype remains free, deterministic, lightweight, and easy to demonstrate. In a future version, an LLM can be integrated to provide more flexible natural-language summarization and extraction while retaining the current rule-based logic as a fallback.
+
 14. DESIGN DECISIONS
 The prototype focuses on one clear workflow instead of trying to build an entire construction management platform.
 
