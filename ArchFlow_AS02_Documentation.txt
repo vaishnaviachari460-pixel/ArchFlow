@@ -1,0 +1,217 @@
+ARCHFLOW — PROJECT COMMUNICATION INTELLIGENCE
+ArchScale Guild Intern Technology Hackathon
+Problem Statement: AS-02 — Make project communication intelligent, not overwhelming
+
+1. PROJECT OVERVIEW
+ArchFlow is a project communication intelligence prototype designed for the Architecture, Engineering and Construction (AEC) industry.
+
+The problem is not a lack of communication. Project teams communicate through messages, emails, site updates, supplier communication and other channels, but important decisions, actions, deadlines, approvals and risks can become buried in communication overload.
+
+ArchFlow transforms unstructured project communication into structured, actionable project information.
+
+2. WHY I CHOSE AS-02
+I chose AS-02 because communication is a practical source of project delays and confusion. A single conversation can contain a decision, an action, a deadline, an approval and information relevant to different stakeholders.
+
+Instead of requiring teams to manually read every conversation and create follow-ups, ArchFlow provides a focused communication-to-intelligence workflow.
+
+3. PROBLEM BEING SOLVED
+Project teams may face:
+- Important information being missed or forgotten.
+- Decisions and approvals being difficult to track.
+- Tasks and responsibilities being unclear.
+- Deadlines being buried inside conversations.
+- Drawing revision conflicts being overlooked.
+- Material availability or replacement issues causing delays.
+- Previous project discussions being difficult to revisit.
+
+4. PROPOSED SOLUTION
+ArchFlow provides a Communication Inbox where project communication can be entered and analyzed.
+
+The system identifies:
+- Summary
+- Risks
+- Decisions and approvals
+- Action items
+- Responsibilities
+- Deadlines
+- Project health
+- Priority
+- Drawing revision conflicts
+- Material availability and material changes
+- Project history / memory
+
+Main workflow:
+Communication Inbox -> Communication Analysis -> Project Intelligence -> Actions, Deadlines, Decisions and Risks -> Project Health and Project History
+
+5. HOW ARCHFLOW WORKS
+Step 1: The user enters or pastes project communication into the Communication Inbox.
+
+Step 2: The Flask application sends the communication to the analysis engine.
+
+Step 3: The analyzer processes the text and identifies project-related information such as stakeholders, actions, decisions, dates, risks and revisions.
+
+Step 4: The result is displayed on a dedicated Project Intelligence page.
+
+Step 5: Extracted actions can be tracked through the Action Tracker.
+
+Step 6: Analysis records and action statuses are persisted in SQLite so previous project intelligence can be revisited through Project History.
+
+Step 7: The user can export a project report.
+
+6. CONSTRUCTION-SPECIFIC INTELLIGENCE
+ArchFlow is focused on AEC project communication rather than being only a generic text summarizer.
+
+Drawing Revision Conflict:
+If an architect communicates Rev 06 while the site team is working with Rev 05, ArchFlow identifies the revision conflict and associated project risk.
+
+Material Availability:
+If a supplier reports that a required material is unavailable, ArchFlow identifies the material/procurement risk and related follow-up actions.
+
+Material Replacement:
+If an approved material changes from T-305 to T-310, ArchFlow detects the change and presents it as project intelligence.
+
+7. KEY CAPABILITIES
+- Communication capture
+- Unstructured communication processing
+- Intelligent project summarization
+- Action extraction
+- Responsibility/stakeholder identification
+- Deadline detection
+- Decision and approval extraction
+- Conversation-to-task conversion
+- Searchable/revisitable project history
+- Risk identification
+- Project health and priority assessment
+- Drawing revision conflict detection
+- Material change detection
+- Persistent action status tracking
+- Exportable project report
+
+8. TECHNOLOGY STACK
+Frontend: HTML, CSS, JavaScript
+Backend: Python, Flask
+Database: SQLite
+
+The prototype does not require a paid external AI API. The current analyzer uses rule-based and domain-aware processing for the prototype.
+
+9. ARCHITECTURE
+Communication Sources
+        |
+        v
+Communication Inbox
+        |
+        v
+Flask Application
+        |
+        v
+Communication Analyzer
+   |       |       |       |
+Summary  Risks  Decisions Actions/Deadlines
+        |
+        v
+Project Memory
+(Revision and Material Change Detection)
+        |
+        v
+SQLite Database
+        |
+        v
+Project Intelligence UI
+(Action Tracker / History / Export Report)
+
+10. PROJECT STRUCTURE
+ArchFlow/
+├── app.py
+├── analyzer.py
+├── database.py
+├── memory.py
+├── static/
+│   ├── app.js
+│   └── style.css
+├── templates/
+│   ├── index.html
+│   └── results.html
+├── README.txt
+├── requirements.txt
+└── ARCHITECTURE_DIAGRAM.png
+
+11. HOW TO RUN LOCALLY
+Requirements:
+- Python 3.x
+- Flask
+
+Steps:
+1. Open a terminal in the ArchFlow project folder.
+2. Install dependencies:
+   pip install -r requirements.txt
+3. Run:
+   python app.py
+4. Open:
+   http://127.0.0.1:5000
+
+12. DEMONSTRATION FLOW
+Recommended scenarios:
+- Material Shortage
+- Revision Conflict
+- Project Delay
+- Material Change & Approval
+- Healthy Project
+
+Recommended main demonstration:
+T-305 is originally approved, becomes unavailable, T-310 is proposed, approval is given, and ArchFlow identifies the material change, related risk, decision, action items and deadline.
+
+A second demonstration can show the Revision Conflict scenario where the architect has Rev 06 while the site team is using Rev 05.
+
+13. WHAT AI HELPED WITH
+AI tools were used during development to help with:
+- Exploring and refining the project idea.
+- Structuring the application workflow.
+- Debugging implementation issues.
+- Improving the user interface and presentation.
+- Reviewing the project against the AS-02 requirements.
+- Preparing documentation and the demonstration narrative.
+
+AI was used as a development aid. The developer understands the submitted architecture and implementation and can explain how the prototype works.
+
+14. DESIGN DECISIONS
+The prototype focuses on one clear workflow instead of trying to build an entire construction management platform.
+
+Important decisions:
+- Use a simple Communication Inbox as the main input.
+- Separate communication entry from the Project Intelligence result page.
+- Keep the interface focused on decisions and actions.
+- Store analysis history and action status in SQLite.
+- Add construction-specific signals such as revision conflicts and material changes.
+- Avoid unnecessary features such as login, payments, chatbots and complex external integrations.
+
+15. WHAT I WOULD BUILD NEXT
+If more development time were available:
+- Direct integrations with email and WhatsApp/project communication sources.
+- Voice-note and meeting-transcript processing.
+- More advanced AI-based extraction and summarization.
+- Better responsibility detection across multiple stakeholders.
+- Semantic search across project history.
+- Stronger links between deadlines and action items.
+- Notifications for high-risk items and approaching deadlines.
+- More construction-specific project intelligence.
+- A production database and secure multi-user deployment.
+
+16. EXPECTED VALUE
+ArchFlow aims to reduce the effort required to interpret project communication and make project information easier to act on.
+
+Instead of searching through many messages to answer:
+- What happened?
+- What is at risk?
+- What was decided?
+- Who needs to act?
+- What is the deadline?
+
+ArchFlow presents these answers in one Project Intelligence view.
+
+17. CONCLUSION
+ArchFlow addresses AS-02 by turning project communication into structured project intelligence.
+
+Core idea:
+MESSAGES -> INTELLIGENCE -> DECISIONS -> ACTIONS
+
+The goal is not to create more communication, but to make existing project communication more useful, searchable and actionable.

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#08111f">
+    <title>ArchFlow — Communication Inbox</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="ambient ambient-one"></div><div class="ambient ambient-two"></div><div class="blueprint-grid"></div>
+<header class="topbar">
+    <a class="brand" href="/" aria-label="ArchFlow home"><span class="logo-mark">A</span><span>Arch<span>Flow</span></span></a>
+    <nav class="topnav" aria-label="Main navigation"><a href="#workspace">Communication</a><a href="#historyCard">History</a></nav>
+    <div class="tag"><span class="pulse-dot"></span> AS-02 · COMMUNICATION</div>
+</header>
+<main id="top">
+    <section class="hero">
+        <div class="hero-copy">
+            <div class="eyebrow"><span class="eyebrow-line"></span> PROJECT COMMUNICATION INTELLIGENCE</div>
+            <h1>Turn project conversations<br>into <span class="gradient-text">project actions.</span></h1>
+            <p>Start with a project conversation. ArchFlow will analyze it and open a dedicated intelligence page with <b>risks, decisions, deadlines and actions.</b></p>
+            <div class="hero-badges"><span>● Live project signals</span><span>◈ Revision aware</span><span>↗ Action focused</span></div>
+        </div>
+        <div class="hero-orbit" aria-hidden="true">
+            <div class="orbit-ring ring-one"></div><div class="orbit-ring ring-two"></div>
+            <div class="orbit-core"><span>AF</span><small>PROJECT<br>INTELLIGENCE</small></div>
+            <span class="orbit-node node-a">RISK</span><span class="orbit-node node-b">DECISION</span><span class="orbit-node node-c">ACTION</span>
+        </div>
+    </section>
+    <section class="workspace communication-workspace" id="workspace">
+        <div class="card inbox-card glass-card">
+            <div class="card-glow"></div>
+            <div class="card-header">
+                <div><div class="section-kicker"><span class="live-indicator"></span> INPUT STREAM</div><h2>Communication Inbox</h2><p>Paste messages from email, WhatsApp, suppliers or site updates.</p></div>
+                <select id="demoSelect" aria-label="Demo scenarios">
+                    <option value="">Load Demo</option><option value="material">Material Shortage</option><option value="revision">Revision Conflict</option><option value="delay">Project Delay</option><option value="change">Material Change & Approval</option><option value="healthy">Healthy Project</option>
+                </select>
+            </div>
+            <div class="source-strip"><span>✉ EMAIL</span><span>◌ WHATSAPP</span><span>▣ SITE</span><span>◈ SUPPLIER</span></div>
+            <textarea id="communication" placeholder="Paste project communication here…&#10;&#10;Example:&#10;Supplier: M-305 is unavailable.&#10;Contractor: Flooring starts on 14 September.&#10;Project Manager: Check an approved alternative."></textarea>
+            <div class="input-footer"><span id="charCount">0 characters</span><button id="analyzeButton" class="analyze"><span class="button-icon">✦</span> Analyze Communication <span>→</span></button></div>
+            <p id="status" class="status"></p>
+            <div class="privacy-note"><span>⌁</span> Local analysis · No paid AI API required · Project data stays in your app</div>
+        </div>
+    </section>
+    <section class="card history-card glass-card" id="historyCard">
+        <div class="card-header"><div><div class="section-kicker">PROJECT MEMORY</div><h2>Project History</h2><p>Previous communication analyses saved in ArchFlow.</p></div><button id="refreshHistory" class="secondary-button"><span>↻</span> Refresh</button></div>
+        <div class="history-timeline"><div class="timeline-line"></div><div id="history" class="history-list"></div></div>
+    </section>
+    <footer><span>ARCHFLOW</span><span>AS-02 · COMMUNICATION</span><span>PROJECT COMMUNICATION INTELLIGENCE</span></footer>
+</main>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#08111f">
+    <title>ArchFlow — Project Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="ambient ambient-one"></div><div class="ambient ambient-two"></div><div class="blueprint-grid"></div>
+<header class="topbar">
+    <a class="brand" href="/" aria-label="ArchFlow home"><span class="logo-mark">A</span><span>Arch<span>Flow</span></span></a>
+    <nav class="topnav" aria-label="Main navigation"><a href="/">Communication</a><a href="#historyCard">History</a></nav>
+    <div class="tag"><span class="pulse-dot"></span> AS-02 · PROJECT INTELLIGENCE</div>
+</header>
+<main id="top">
+    <section class="hero result-hero">
+        <div class="hero-copy">
+            <div class="eyebrow"><span class="eyebrow-line"></span> PROJECT CONTROL CENTER</div>
+            <h1>Project <span class="gradient-text">Intelligence.</span></h1>
+            <p>Your communication has been converted into a focused project snapshot of <b>risks, decisions, actions, deadlines and changes.</b></p>
+            <div class="hero-badges"><a class="hero-back-link" href="/">← New Communication</a><span>● Analysis saved</span><span>◈ Project memory</span></div>
+        </div>
+        <div class="hero-orbit" aria-hidden="true">
+            <div class="orbit-ring ring-one"></div><div class="orbit-ring ring-two"></div>
+            <div class="orbit-core"><span>AF</span><small>PROJECT<br>INTELLIGENCE</small></div>
+            <span class="orbit-node node-a">RISK</span><span class="orbit-node node-b">DECISION</span><span class="orbit-node node-c">ACTION</span>
+        </div>
+    </section>
+    <section class="card intelligence-card glass-card" id="resultsPage">
+        <div class="card-header result-header">
+            <div><div class="section-kicker">PROJECT CONTROL CENTER</div><h2>Project Intelligence</h2><p id="resultStatus">Loading analysis…</p></div>
+            <div class="result-actions">
+                <button id="clearAnalysisButton" class="secondary-button" type="button"><span>←</span> New Communication</button>
+                <button id="exportButton" class="secondary-button" type="button"><span>⇩</span> Export Report</button>
+            </div>
+        </div>
+        <div id="empty" class="empty-state"><div class="empty-visual"><div class="empty-scan"></div><span>AF</span></div><div class="empty-kicker">LOADING PROJECT DATA</div><h3>Loading analysis…</h3><p>Please wait while ArchFlow loads this project intelligence snapshot.</p></div>
+        <div id="results" class="hidden">
+            <section class="metrics-section"><div class="section-label">PROJECT OVERVIEW <span></span></div><div id="metrics" class="metrics-grid"></div></section>
+            <section class="health-explanation" id="healthExplanation"></section>
+            <section class="result-box"><div class="box-title"><span>SUMMARY</span><span class="box-rule"></span></div><p id="summary"></p></section>
+            <section class="result-box"><div class="box-title"><span>⚠ RISKS</span><span id="riskCount" class="count-pill"></span></div><div id="risks"></div></section>
+            <section class="result-box"><div class="box-title"><span>✓ DECISIONS</span><span id="decisionCount" class="count-pill"></span></div><div id="decisions"></div></section>
+            <section class="result-box"><div class="box-title"><span>→ ACTION ITEMS</span></div><div class="action-tracker-head"><div><strong>Action Tracker</strong><small>Track project actions by status.</small></div><div id="actionFilters" class="filters"></div></div><div id="actionLegend" class="action-legend"></div><div id="actions"></div></section>
+            <section class="result-box"><div class="box-title"><span>⏰ DETECTED DEADLINES</span><span id="deadlineCount" class="count-pill"></span></div><div id="deadlines"></div></section>
+            <section class="result-box"><div class="box-title"><span>↻ DETECTED CHANGES</span><span id="changeCount" class="count-pill"></span></div><div id="changes"></div></section>
+            <section class="result-box entity-box"><div class="box-title"><span>PROJECT SIGNALS</span></div><div id="signals" class="signals"></div></section>
+        </div>
+    </section>
+    <section class="card history-card glass-card" id="historyCard">
+        <div class="card-header"><div><div class="section-kicker">PROJECT MEMORY</div><h2>Project History</h2><p>Previous communication analyses saved in ArchFlow.</p></div><button id="refreshHistory" class="secondary-button"><span>↻</span> Refresh</button></div>
+        <div class="history-timeline"><div class="timeline-line"></div><div id="history" class="history-list"></div></div>
+    </section>
+    <footer><span>ARCHFLOW</span><span>AS-02 · COMMUNICATION</span><span>PROJECT COMMUNICATION INTELLIGENCE</span></footer>
+</main>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
